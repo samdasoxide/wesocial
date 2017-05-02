@@ -33,12 +33,18 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Authentication backends
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
-    'account.authentication.EmailAuthBackend')
+    'account.authentication.EmailAuthBackend',
+    'social.backends.facebook.Facebook2OAuth2',
+    'social.backends.twitter.TwitterOAuth',
+    'social.backends.google.GoogleOAuth2',
+)
 
 # Application definition
 
 INSTALLED_APPS = (
     'account',
+    'images',
+    'social.apps.django_app.default',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -95,7 +101,20 @@ LOGIN_URL = reverse_lazy('login')
 LOGOUT_URL = reverse_lazy('logout')
 
 
+# Facebook authentication
+SOCIAL_AUTH_FACEBOOK_KEY = '1683284611975125'
+SOCIAL_AUTH_FACEBOOK_SECRET = 'bf963b3fef6e781a2f7540c2de4aab10'
 
+# Extra permissions you want to ask facebook users
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+# Twitter authentication
+SOCIAL_AUTH_TWITTER_KEY = ' bWSAQb4ausWw8bX4iI5Ut0J49'
+SOCIAL_AUTH_TWITTER_SECRET = '3G92L2qp8nSGgJ2oXhUfs7uB1AwuiHgsDp5MQImDQicSGbsrxO'
+
+# Google authentication
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '846876351771-04tv6gtlss2p54e22jo6d8hi1g0uqmo6.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'qgkolqWYkPhNw1qwt160A1Ys'
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
