@@ -1,4 +1,4 @@
-import urllib2
+from urllib import request
 from django import forms
 from django.core.files.base import ContentFile
 from django.utils.text import slugify
@@ -35,7 +35,7 @@ class ImageCreateForm(forms.ModelForm):
                                     image_url.rsplit('.', 1)[1].lower())
 
         # download image from the given url
-        response = urllib2.urlopen(image_url)
+        response = request.urlopen(image_url)
         image.image.save(image_name,
                          ContentFile(response.read()),
                          save=False)
