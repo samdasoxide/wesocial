@@ -25,6 +25,8 @@ SECRET_KEY = 'zkp)j(we+=9zflig8_f5^nro9*aty(zocz94bn3wik=hy1=bz6'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+THUMBNAIL_DEBUG = True
+
 ALLOWED_HOSTS = []
 
 # Email settings
@@ -44,6 +46,7 @@ AUTHENTICATION_BACKENDS = (
 INSTALLED_APPS = (
     'account',
     'images',
+    'sorl.thumbnail',
     'social.apps.django_app.default',
     'django.contrib.admin',
     'django.contrib.auth',
