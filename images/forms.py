@@ -18,7 +18,7 @@ class ImageCreateForm(forms.ModelForm):
 
     def clean_url(self):
         url = self.cleaned_data['url']
-        print("the url is:{}").format(url)
+        print("the url is:{}".format(url))
         valid_extensions = ['jpg', 'jpeg']
         extension = url.rsplit('.', 1)[1].lower()
 
