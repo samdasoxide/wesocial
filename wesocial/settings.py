@@ -46,6 +46,7 @@ AUTHENTICATION_BACKENDS = (
 INSTALLED_APPS = (
     'account',
     'images',
+    'actions',
     'sorl.thumbnail',
     'social.apps.django_app.default',
     'django.contrib.admin',
@@ -141,3 +142,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+ABSOLUTE_URL_OVERRIDES = {
+    'auth.user': lambda u: reverse_lazy('user_detail',
+                                        args=[u.username])
+}
