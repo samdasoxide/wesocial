@@ -46,6 +46,7 @@ def dashboard(request):
 
     if following_ids:
         # If user is following others, retreive only their actions
+        # to get FK use field name suffixed with _id
         actions = actions.filter(user_id__in=following_ids)\
                          .select_related('user', 'user__profile')\
                          .prefetch_related('target')
